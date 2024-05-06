@@ -3,6 +3,8 @@
 Introfuction
 This user story outlines the specifications for building two dashboards using tableau to help stakeholders including sales managers and executives to analyze sales performance and customers.
 
+The dataset comprises of 4 CSV files - Customer.csv, Producy.csv, Location.csv, Order.csv
+
 Dasboard Purpose
 The purpoose of this sales dashboard is to present an overview of the sales metrics and trends in order to analyze year-over-year sales performance and undserstand sales trends
 
@@ -38,6 +40,19 @@ Top 10 Customers by Profit
  
     Data Filters
     Allow users to filter data by product informayion like category and sub category and by location information like region, state and city
+
+    Create a parameter and a calculated field that will dynamic change to show the current and previous year base on what the user select
+
+    CY Sales
+    `IF YEAR([Order Date])= [Select Year] THEN[Sales]
+ END`
+
+PY sales
+`IF YEAR([Order Date])= [Select Year]- 1 THEN[Sales]
+END`
+
+the difference in the previous and curreny year of sales in percentage
+`(SUM([CY Sales]) - SUM([PY Sales])) / SUM([PY Sales])`
 
 STEPS IN TABLEAU
 STEP 1: Collecting and analyzing the user requiremet : collect requirement, choose right charts, draw mockups, choose colors
